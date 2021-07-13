@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block title %} {{ diary.id }}번째 일기 {% endblock %}
+{% block link %} {% static 'css/home.css' %} {% endblock %}
+{% block content %}
+    <h1>제목 : {{ diary.title }}</h1>
+    <h3>날짜 : {{ diary.pub_date }}</h3>
+    <h3>날씨 : {{ diary.weather }}</h3>
+    <hr>
+    {% if diary.image %}
+    <p><img src="{{ diary.image.url }}" width="200" height="200 "alt="안나와요"></p>
+    {% endif %}
+    <p>{{ diary.body }}</p>
+    <a href="{% url 'delete' diary.id %}"><input type="button" value="삭제하기"></a>
+{% endblock %}

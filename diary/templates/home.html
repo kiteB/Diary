@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block title %} 홈 화면 {% endblock %} 
+{% block link %} {% static 'css/home.css' %} {% endblock %}
+{% block content %}
+
+<h1>Diary</h1>
+
+{% for diary in diaries %}
+<div class="bodystyle">
+  {% if diary.image %}
+  <p>
+    <img src="{{ diary.image.url }}" alt="초코 사진" width="150" height="150"/>
+  </p>
+  {% endif %}
+  <span>{{diary.title}}</span>
+  <span>{{diary.pub_date}}</span>
+  <a href="{% url 'detail' diary.id %}">자세히보기</a>
+</div>
+{% endfor %} 
+{% endblock %}

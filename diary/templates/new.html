@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}오늘의 일기{% endblock %}
+{% block link %} {% static 'css/home.css' %} {% endblock %}
+{% block content %}
+    <h3>[ 오늘의 일기 ]</h3>
+    <form method="POST" action="{% url 'diary' %}">
+        {% csrf_token %}
+        <p>제목: 
+            <input name="title" type="text" placeholder="제목">
+        </p>
+        <p>날씨: 
+            <input name="weather" type="text" placeholder="날씨">
+        </p>
+        <p>이미지 : <input type="file" name="image" /></p>
+        <p>본문 : <textarea name="body" cols="30" rows="10"></textarea></p>
+        <button>글쓰기</button>
+    </form>
+{% endblock %}
