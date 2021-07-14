@@ -9,7 +9,7 @@ class Diary(models.Model):
     # 내용
     body = models.TextField()
     # 생성날짜
-    pub_date = models.DateTimeField()
+    pub_date = models.DateTimeField(auto_now=True)
     # 날씨
     weather = models.CharField(max_length=100)
 
