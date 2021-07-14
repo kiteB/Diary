@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from diary import views as D
@@ -26,4 +26,7 @@ urlpatterns = [
     path('<str:id>', D.detail, name='detail'),
     path('diary/', D.make_diary, name='diary'),
     path('delete/<str:id>', D.delete, name='delete'),
+
+    # social login
+    path('accounts/', include('allauth.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
