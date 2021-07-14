@@ -4,25 +4,29 @@
 {% block title %} 홈 화면 {% endblock %} 
 {% block link %} {% static 'css/home.css' %} {% endblock %}
 {% block content %}
-
-<h1>Diary</h1>
-{% for diary in diaries %}
-<div class="bodystyle">
-    {% if diary.image %}
-    <p>
-        <img src="{{ diary.image.url }}" alt="사진" width="150" height="150"/>
-    </p>
-    {% endif %}
-    <span><strong>{{diary.title}}</strong></span>
-    <span>{{diary.pub_date}}</span>
-    <a href="{% url 'detail' diary.id %}">자세히보기</a>
+<div class="header">
+    <h1>{{user}}의 다이어리</h1>
 </div>
+<div class="contents">
+{% for diary in diaries %}
+    <div class="diary">
+        {% if diary.image %}
+        <p>
+            <img src="{{ diary.image.url }}" alt="사진" width="200" height="200"/>
+        </p>
+        {% endif %}
+        <span><strong>{{diary.title}}</strong></span>
+        <span>{{diary.pub_date}}</span>
+        <br>
+        <a href="{% url 'detail' diary.id %}">자세히보기</a>
+    </div>
 {% endfor %}
+</div>
 <br>
-<div id='nav'>
+<div class="footer">
     <!-- 이전 페이지가 있을 시, 이전 페이지 이동 -->
     {% if diaries.has_previous %}
-        <a href="?page={{diaries.previous_page_number}}"> <- </a>
+        <a href="?page={{diaries.previous_page_number}}"> < </a>
     {% endif %}
 
     <!-- 현재 페이지 / 전체 페이지 -->
@@ -32,7 +36,7 @@
 
     <!-- 다음 페이지가 있을 시, 다음 페이지 이동 -->
     {% if diaries.has_next %}
-        <a href="?page={{diaries.next_page_number}}"> -> </a>
+        <a href="?page={{diaries.next_page_number}}"> > </a>
     {% endif %}
 
 </div>

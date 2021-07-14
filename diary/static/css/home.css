@@ -6,11 +6,11 @@
 }
 body {
     display: flex;
-    height: 750px;
+    height: 700px;
     font-family: 'Cafe24SsurroundAir';
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     background-color: aliceblue;
     text-align: center;
     /* border: 1px solid blue; */
@@ -24,24 +24,27 @@ input, textarea, button, pre {
     position: relative;
     right: 15px;
 }
-.diary {
+.contents {
     display: flex;
-    width: 50%;
-    height: 90%;
-    flex-direction: column;
+    width: 1000px;
+    height: 70%;
+    /* flex-direction: column; */
     align-items: center;
     justify-content: flex-start;
     /* border: 1px solid #666666; */
+}
+.diary {
+    display: flex;
+    width: 30%;
+    height: 80%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 30px;
+    /* border: 1px solid #666666; */
     border-radius: 10px;
     background-color: white;
-    box-shadow: 2px 2px 2px #bdbdbd;
-}
-.diary h1 {
-    margin: 40px 0;
-}
-.content {
-    /* width: 70%; */
-    text-align: center;
+    box-shadow: 2px 2px 2px 2px #bdbdbd;
 }
 form {
     width: 30%;
@@ -55,25 +58,6 @@ label {
 #submit {
     text-align: center;
 }
-table {
-    width: 70%;
-    height: 70%;
-    border-collapse:collapse;
-    text-align: center;
-}
-td {
-    border: 1px solid #b8b8b8;
-    margin: 0;
-}
-tr:nth-child(1) {
-    height: 50px;
-}
-tr:nth-child(2) {
-    height: 300px;
-}
-tr:nth-child(2) {
-    height: 100px;
-}
 button {
     background-color: aliceblue;
     border-radius: 3px;
@@ -81,4 +65,7 @@ button {
     margin-top: 5px;
     border: none;
     box-shadow: 2px 2px 2px #bdbdbd;
+}
+a:link {
+    text-decoration: none;
 }
