@@ -6,40 +6,47 @@
 }
 body {
     display: flex;
-    height: 700px;
+    height: 750px;
     font-family: 'Cafe24SsurroundAir';
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: aliceblue;
     text-align: center;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 }
-input, textarea, button {
+input, textarea, button, pre {
     font-family: 'Cafe24SsurroundAir';
+    text-align: center;
 }
-#diary_img{
+#diary_img {
     font-family: 'Cafe24SsurroundAir';
     position: relative;
     right: 15px;
 }
 .diary {
     display: flex;
-    width: 1000px;
+    width: 50%;
     height: 90%;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    border: 1px solid blue;
+    justify-content: flex-start;
+    /* border: 1px solid #666666; */
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 2px 2px 2px #bdbdbd;
+}
+.diary h1 {
+    margin: 40px 0;
 }
 .content {
-    width: 70%;
-    /* text-align: center; */
+    /* width: 70%; */
+    text-align: center;
 }
 form {
     width: 30%;
     padding: 20px;
-    border: 1px solid black;
+    /* border: 1px solid #666666; */
     text-align:initial;
 }
 label {
@@ -47,4 +54,31 @@ label {
 }
 #submit {
     text-align: center;
+}
+table {
+    width: 70%;
+    height: 70%;
+    border-collapse:collapse;
+    text-align: center;
+}
+td {
+    border: 1px solid #b8b8b8;
+    margin: 0;
+}
+tr:nth-child(1) {
+    height: 50px;
+}
+tr:nth-child(2) {
+    height: 300px;
+}
+tr:nth-child(2) {
+    height: 100px;
+}
+button {
+    background-color: aliceblue;
+    border-radius: 3px;
+    padding: 10px 20px;
+    margin-top: 5px;
+    border: none;
+    box-shadow: 2px 2px 2px #bdbdbd;
 }
