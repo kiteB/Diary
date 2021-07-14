@@ -13,16 +13,25 @@ body {
     flex-direction: column;
     background-color: aliceblue;
     text-align: center;
-    /* border: 1px solid blue; */
 }
-input, textarea, button, pre {
+input, textarea, button, pre, p, span{
     font-family: 'Cafe24SsurroundAir';
     text-align: center;
 }
-#diary_img {
-    font-family: 'Cafe24SsurroundAir';
-    position: relative;
-    right: 15px;
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header h1 {
+    margin: 5px;
+}
+.menu {
+    display: flex;
+    width: 200px;
+    /* border: 1px solid black; */
+    justify-content: space-around;
 }
 .contents {
     display: flex;
@@ -68,4 +77,7 @@ button {
 }
 a:link {
     text-decoration: none;
+}
+a {
+    color: black;
 }

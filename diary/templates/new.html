@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}오늘의 일기{% endblock %}
-{% block link %} {% static 'css/home.css' %} {% endblock %}
+{% block link %} {% static 'css/new.css' %} {% endblock %}
 {% block content %}
     <h3>[ 오늘의 일기 ]</h3>
+    <br>
     <form method="POST" action="{% url 'diary' %}">
         {% csrf_token %}
         <p>
@@ -19,10 +20,14 @@
             <input id="diary_img" type="file" name="image" />
         </p>
         <p>
-            <label>본문</label>
+            <label>내용</label>
             <textarea name="body" cols="30" rows="10"></textarea>
         </p>
-        <br>
-        <p id="submit"><button>글쓰기</button></p>
+        <div class="buttons">
+            <a href="{% url 'home'%}">
+                <button>홈 화면</button>
+            </a>
+            <button>글쓰기</button>
+        </div>
     </form>
 {% endblock %}

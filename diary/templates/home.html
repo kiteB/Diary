@@ -1,11 +1,18 @@
 {% extends 'base.html' %} 
-{% load static %} 
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %} 
 
 {% block title %} 홈 화면 {% endblock %} 
 {% block link %} {% static 'css/home.css' %} {% endblock %}
 {% block content %}
 <div class="header">
     <h1>{{user}}의 다이어리</h1>
+    <hr width="200px;">
+    <div class="menu">
+        <a href="{% provider_login_url 'google' %}">구글 로그인</a>
+        <a href="{% url 'diary' %}">일기 쓰기</a>
+    </div>
 </div>
 <div class="contents">
 {% for diary in diaries %}
