@@ -6,8 +6,11 @@ from django.core.paginator import Paginator
 
 
 def home(request):
-    diaries= Diary.objects.all()
-    return render(request, 'home.html', {'diaries': diaries})
+    diaries= Diary.objects.all().order_by('-pub_date')          # pub_date 필드를 기준으로 내림차순 정렬
+    paginator = Paginator(diaries, 3)
+    page_number = request.GET.get('page')
+    page = paginator.get_page(page_number)
+    return render(request, 'home.html', {'diaries': page})
 
 
 def detail(request, id):

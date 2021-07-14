@@ -13,7 +13,7 @@ body {
     justify-content: center;
     background-color: aliceblue;
     text-align: center;
-    /* border: 1px solid blue; */
+    border: 1px solid blue;
 }
 input, textarea, button {
     font-family: 'Cafe24SsurroundAir';

@@ -6,17 +6,34 @@
 {% block content %}
 
 <h1>Diary</h1>
-
 {% for diary in diaries %}
 <div class="bodystyle">
-  {% if diary.image %}
-  <p>
-    <img src="{{ diary.image.url }}" alt="초코 사진" width="150" height="150"/>
-  </p>
-  {% endif %}
-  <span>{{diary.title}}</span>
-  <span>{{diary.pub_date}}</span>
-  <a href="{% url 'detail' diary.id %}">자세히보기</a>
+    {% if diary.image %}
+    <p>
+        <img src="{{ diary.image.url }}" alt="사진" width="150" height="150"/>
+    </p>
+    {% endif %}
+    <span><strong>{{diary.title}}</strong></span>
+    <span>{{diary.pub_date}}</span>
+    <a href="{% url 'detail' diary.id %}">자세히보기</a>
 </div>
-{% endfor %} 
+{% endfor %}
+<br>
+<div id='nav'>
+    <!-- 이전 페이지가 있을 시, 이전 페이지 이동 -->
+    {% if diaries.has_previous %}
+        <a href="?page={{diaries.previous_page_number}}"> <- </a>
+    {% endif %}
+
+    <!-- 현재 페이지 / 전체 페이지 -->
+    <span><strong>{{diaries.number}}</strong></span>
+    <span>/</span>
+    <span>{{diaries.paginator.num_pages}}</span>
+
+    <!-- 다음 페이지가 있을 시, 다음 페이지 이동 -->
+    {% if diaries.has_next %}
+        <a href="?page={{diaries.next_page_number}}"> -> </a>
+    {% endif %}
+
+</div>
 {% endblock %}

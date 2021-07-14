@@ -6,9 +6,45 @@
 }
 body {
     display: flex;
+    height: 700px;
     font-family: 'Cafe24SsurroundAir';
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
     text-align: center;
+    border: 1px solid blue;
 }
-.contents {
+input, textarea, button {
+    font-family: 'Cafe24SsurroundAir';
+}
+#diary_img{
+    font-family: 'Cafe24SsurroundAir';
+    position: relative;
+    right: 15px;
+}
+.diary {
+    display: flex;
     width: 1000px;
+    height: 90%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid blue;
+}
+.content {
+    width: 70%;
+    /* text-align: center; */
+}
+form {
+    width: 30%;
+    padding: 20px;
+    border: 1px solid black;
+    text-align:initial;
+}
+label {
+    margin: 0 50px;
+}
+#submit {
+    text-align: center;
 }
