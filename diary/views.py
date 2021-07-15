@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
 from django.utils import timezone
 from django.core.paginator import Paginator
+from django.db.models import Q
 
 
 def home(request):
@@ -11,6 +12,18 @@ def home(request):
     page_number = request.GET.get('page')
     page = paginator.get_page(page_number)
     return render(request, 'home.html', {'diaries': page})
+
+def search(request):
+    diaries= Diary.objects.all().order_by('-pub_date')          # pub_date 필드를 기준으로 내림차순 정렬
+    search_text = request.GET.get('search_text')
+    if search_text:
+        diaries = diaries.filter(Q(body__icontains=search_text) | Q(title__icontains=search_text))
+        paginator = Paginator(diaries, 3)
+        page_number = request.GET.get('page')
+        page = paginator.get_page(page_number)
+        return render(request, 'search.html', {'diaries': page, 'search_text': search_text})
+    
+    return render(request, 'search.html')
 
 
 def detail(request, id):

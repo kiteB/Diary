@@ -31,9 +31,9 @@ label {
     right: 15px;
 }
 button {
-    background-color:rgb(252, 244, 177);
+    background-color: lightgray;
     border-radius: 3px;
-    padding: 10px 20px;
+    padding: 7px 15px;
     margin: 20px 20px 0;
     border: none;
     box-shadow: 2px 2px 2px #bdbdbd;
@@ -47,7 +47,10 @@ a {
 textarea {
     resize: none;
 }
-.buttons {
-    display: flex;
-    justify-content: center;
+#submit {
+    text-align: center;
+}
+a:hover {
+    color:lightcoral;
+    font-weight: 600;
 }

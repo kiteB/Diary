@@ -9,7 +9,7 @@ body {
     height: 700px;
     font-family: 'Cafe24SsurroundAir';
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     background-color: aliceblue;
     text-align: center;
@@ -20,6 +20,7 @@ input, textarea, button, pre, p, span{
 }
 .header {
     display: flex;
+    margin: 40px 0;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -29,7 +30,7 @@ input, textarea, button, pre, p, span{
 }
 .menu {
     display: flex;
-    width: 200px;
+    width: 400px;
     /* border: 1px solid black; */
     justify-content: space-around;
 }
@@ -55,12 +56,6 @@ input, textarea, button, pre, p, span{
     background-color: white;
     box-shadow: 2px 2px 2px 2px #bdbdbd;
 }
-form {
-    width: 30%;
-    padding: 20px;
-    /* border: 1px solid #666666; */
-    text-align:initial;
-}
 label {
     margin: 0 50px;
 }
@@ -80,4 +75,8 @@ a:link {
 }
 a {
     color: black;
+}
+a:hover {
+    color:lightcoral;
+    /* font-weight: bold; */
 }

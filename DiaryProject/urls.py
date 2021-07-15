@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', include('diary')),
     path('', D.home, name='home'),
+    path('search/', D.search, name='search'),
     path('<str:id>', D.detail, name='detail'),
     path('diary/', D.make_diary, name='diary'),
     path('delete/<str:id>', D.delete, name='delete'),

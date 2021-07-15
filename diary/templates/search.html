@@ -1,0 +1,63 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %} 
+
+{% block title %} 일기 검색 {% endblock %} 
+{% block link %} {% static 'css/search.css' %} {% endblock %}
+{% block content %}
+<div class="header">
+    <h1>{{user}}의 다이어리</h1>
+    <hr width="350px;">
+    <div class="menu">
+        <a href="{% url 'home' %}">홈 화면</a>
+        <a href="{% provider_login_url 'google' %}">구글 로그인</a>
+        <a href="{% url 'diary' %}">일기 쓰기</a>
+        <a href="{% url 'search' %}"><strong>일기 검색</strong></a>
+    </div>
+</div>
+
+<div class="search-form">
+    <form action="{% url 'search'%}" method="GET">
+        <input type="text" name="search_text" placeholder="내용을 입력하세요">
+        <button>Search</button>
+    </form>
+</div>
+
+{% if search_text %}
+<h3>"{{search_text}}"(이)가 포함된 일기입니다.</h3>
+<div class="contents">
+    {% for diary in diaries %}
+        <div class="diary">
+            {% if diary.image %}
+            <p>
+                <img src="{{ diary.image.url }}" alt="사진" width="130" height="130"/>
+            </p>
+            {% endif %}
+            <span><strong>{{diary.title}}</strong></span>
+            <span>{{diary.pub_date}}</span>
+            <br>
+            <a href="{% url 'detail' diary.id %}">자세히보기</a>
+        </div>
+    {% endfor %}
+</div>
+<br>
+<div class="footer">
+    <!-- 이전 페이지가 있을 시, 이전 페이지 이동 -->
+    {% if diaries.has_previous %}
+        <a href="?page={{diaries.previous_page_number}}"> < </a>
+    {% endif %}
+
+    <!-- 현재 페이지 / 전체 페이지 -->
+    <span><strong>{{diaries.number}}</strong></span>
+    <span>/</span>
+    <span>{{diaries.paginator.num_pages}}</span>
+
+    <!-- 다음 페이지가 있을 시, 다음 페이지 이동 -->
+    {% if diaries.has_next %}
+        <a href="?page={{diaries.next_page_number}}"> > </a>
+    {% endif %}
+
+</div>
+{% endif %}
+{% endblock %}

@@ -8,10 +8,12 @@
 {% block content %}
 <div class="header">
     <h1>{{user}}의 다이어리</h1>
-    <hr width="200px;">
+    <hr width="350px;">
     <div class="menu">
+        <a href="{% url 'home' %}"><strong>홈 화면</strong></a>
         <a href="{% provider_login_url 'google' %}">구글 로그인</a>
         <a href="{% url 'diary' %}">일기 쓰기</a>
+        <a href="{% url 'search' %}">일기 검색</a>
     </div>
 </div>
 <div class="contents">
